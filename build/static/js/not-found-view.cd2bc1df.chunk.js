@@ -1,0 +1,2 @@
+(this["webpackJsonpmy-app"]=this["webpackJsonpmy-app"]||[]).push([[5],{68:function(p,t,n){"use strict";n.r(t);var s=n(1);t.default=function(){return Object(s.jsx)("h1",{children:"\u0421\u0442\u0440\u0430\u043d\u0438\u0446\u0430 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u0430!"})}}}]);
+//# sourceMappingURL=not-found-view.cd2bc1df.chunk.js.map

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/components/PopularMoviesList/PopularMoviesList.module.css"],"names":[],"mappings":"AAAA,+BACE,eACF","file":"home-view.953942b0.chunk.css","sourcesContent":[".list {\n  list-style: none;\n}\n"]}
