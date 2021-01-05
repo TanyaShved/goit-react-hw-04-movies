@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -6,6 +7,8 @@ import s from './Searcbar.module.css';
 
 const Searcbar = ({ onSubmit }) => {
   const [movieName, setMovieName] = useState('');
+  const location = useLocation();
+  const history = useHistory();
 
   const handelNameChange = e => {
     setMovieName(e.currentTarget.value.toLowerCase());
@@ -13,6 +16,11 @@ const Searcbar = ({ onSubmit }) => {
 
   const handelSubmit = e => {
     e.preventDefault();
+
+    history.push({
+      ...location,
+      search: `query=${e.target.form.movieName.value}`,
+    });
 
     // проверяем не пустой ли нам инпут
     if (movieName.trim() === '') {
@@ -26,8 +34,12 @@ const Searcbar = ({ onSubmit }) => {
 
   return (
     <header className={s.Searchbar}>
-      <form onSubmit={handelSubmit} className={s.SearchForm}>
-        <button type="submit" className={s.SearchForm_button}>
+      <form className={s.SearchForm}>
+        <button
+          type="submit"
+          onClick={handelSubmit}
+          className={s.SearchForm_button}
+        >
           <span className={s.SearchForm_button_label}>Search</span>
         </button>
 
@@ -38,6 +50,8 @@ const Searcbar = ({ onSubmit }) => {
           autoFocus
           placeholder="Search movie"
           value={movieName}
+          name="movieName"
+          id=""
           onChange={handelNameChange}
         />
       </form>

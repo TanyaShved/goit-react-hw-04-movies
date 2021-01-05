@@ -1,4 +1,5 @@
 import ReviewItem from '../ReviewItem/ReviewItem';
+import PropTypes from 'prop-types';
 import s from './ReviwesList.module.css';
 
 const ReviwesList = ({ reviews }) => {
@@ -11,6 +12,10 @@ const ReviwesList = ({ reviews }) => {
       ))}
     </ul>
   );
+};
+
+ReviwesList.propTypes = {
+  reviews: PropTypes.array,
 };
 
 export default ReviwesList;

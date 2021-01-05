@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import s from './CastItem.module.css';
 
 const CastItem = ({ name, foto }) => {
@@ -15,6 +16,11 @@ const CastItem = ({ name, foto }) => {
       />
     </div>
   );
+};
+
+CastItem.propTypes = {
+  name: PropTypes.string.isRequired,
+  foto: PropTypes.string,
 };
 
 export default CastItem;

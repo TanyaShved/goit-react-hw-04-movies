@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import AdditionalInformation from '../AdditionalInformation/AdditionalInformation';
 import s from './MovieItem.module.css';
 
@@ -58,6 +59,10 @@ const MovieItem = ({ movie }) => {
       <hr />
     </>
   );
+};
+
+MovieItem.propTypes = {
+  movie: PropTypes.any.isRequired,
 };
 
 export default MovieItem;

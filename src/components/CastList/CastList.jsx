@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import CastItem from '../CastItem/CastItem';
 import s from './CastList.module.css';
 
@@ -11,6 +12,10 @@ const CastList = ({ casts }) => {
       ))}
     </ul>
   );
+};
+
+CastList.propTypes = {
+  casts: PropTypes.array.isRequired,
 };
 
 export default CastList;
