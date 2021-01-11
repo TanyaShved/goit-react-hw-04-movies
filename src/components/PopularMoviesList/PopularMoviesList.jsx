@@ -15,7 +15,7 @@ const PopularMoviesList = ({ movies }) => {
             <Link
               to={{
                 pathname: `${newUrl}/:${id}`,
-                state: { from: location },
+                state: { from: location.pathname },
               }}
             >
               {title}

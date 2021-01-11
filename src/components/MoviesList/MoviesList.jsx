@@ -3,6 +3,7 @@ import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 import api from '../../services/movies-api';
+import s from './MoviesList.module.css';
 
 const Status = {
   IDLE: 'idle',
@@ -44,7 +45,7 @@ const MoviesList = ({ movieName }) => {
 
       {status === Status.RESOLVED && (
         <>
-          <ul>
+          <ul className={s.list}>
             {movies.map(({ title, id }) => (
               <li key={id}>
                 <Link

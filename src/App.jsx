@@ -30,12 +30,12 @@ const App = () => {
             <HomePage />
           </Route>
 
-          <Route path="/movies" exact>
-            <MoviesPage />
-          </Route>
-
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
+          </Route>
+
+          <Route path="/movies">
+            <MoviesPage />
           </Route>
 
           <Route>
