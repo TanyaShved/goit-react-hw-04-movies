@@ -10,7 +10,7 @@ const GoBackButton = ({ history, path }) => {
         history.push(path?.state?.from || '/');
       }}
     >
-      Go Back
+      &#9754; Go Back
     </button>
   );
 };

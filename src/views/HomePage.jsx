@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import api from '../services/movies-api';
-import PopularMoviesList from '../components/PopularMoviesList/PopularMoviesList';
+import MoviesList from '../components/MoviesList/MoviesList';
 import Spinner from '../components/Spinner/Spinner';
 
 const Status = {
@@ -41,7 +41,7 @@ const HomePage = () => {
       {status === Status.RESOLVED && (
         <>
           <h1 style={{ marginLeft: '20px' }}>Trending today</h1>
-          <PopularMoviesList movies={movies} />
+          <MoviesList movies={movies} />
         </>
       )}
 
