@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import CastList from '../components/CastList/CastList';
-import Spinner from '../components/Spinner/Spinner';
-import api from '../services/movies-api';
+import CastList from '../CastList/CastList';
+import Spinner from '../Spinner/Spinner';
+import api from '../../services/movies-api';
 
 const Status = {
   IDLE: 'idle',

@@ -11,9 +11,13 @@ import api from '../services/movies-api';
 import Spinner from '../components/Spinner/Spinner';
 import GoBackButton from '../components/GoBackButton/GoBackButton';
 
-const Cast = lazy(() => import('./Cast' /* webpackChunkName: "cast-view" */));
+const Cast = lazy(() =>
+  import('../components/Cast/Cast' /* webpackChunkName: "cast-page" */),
+);
 const Reviews = lazy(() =>
-  import('./Reviews' /* webpackChunkName: "reviews-view" */),
+  import(
+    '../components/Reviews/Reviews' /* webpackChunkName: "reviews-page" */
+  ),
 );
 
 const Status = {
