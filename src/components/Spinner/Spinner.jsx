@@ -5,7 +5,7 @@ const Spinner = () => {
   return (
     <Loader
       type="Bars"
-      color="#00BFFF"
+      color="#ff6b08"
       height={100}
       width={100}
       timeout={3000}

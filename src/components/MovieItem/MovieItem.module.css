@@ -64,3 +64,8 @@
   line-height: 1.33;
   letter-spacing: 1px;
 }
+
+.poster {
+  max-width: 420px;
+  height: 600px;
+}

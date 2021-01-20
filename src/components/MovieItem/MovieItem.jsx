@@ -9,8 +9,9 @@ const MovieItem = ({ movie }) => {
         <div className={s.image_card}>
           {movie.poster_path && (
             <img
-              src={'https://image.tmdb.org/t/p/w400' + movie.poster_path}
+              src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt="{movie.title}"
+              className={s.poster}
             />
           )}
         </div>
