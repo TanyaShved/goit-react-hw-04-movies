@@ -6,10 +6,10 @@ import {
   useHistory,
   useLocation,
 } from 'react-router-dom';
-import MovieItem from '../components/MovieItem/MovieItem';
-import api from '../services/movies-api';
-import Spinner from '../components/Spinner/Spinner';
-import GoBackButton from '../components/GoBackButton/GoBackButton';
+import MovieItem from 'components/MovieItem/MovieItem';
+import api from 'services/movies-api';
+import Spinner from 'components/Spinner/Spinner';
+import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 const Cast = lazy(() =>
   import('../components/Cast/Cast' /* webpackChunkName: "cast-page" */),

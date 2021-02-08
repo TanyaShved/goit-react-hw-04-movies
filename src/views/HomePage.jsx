@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import api from '../services/movies-api';
-import MoviesList from '../components/MoviesList/MoviesList';
-import Spinner from '../components/Spinner/Spinner';
+import api from 'services/movies-api';
+import MoviesList from 'components/MoviesList/MoviesList';
+import Spinner from 'components/Spinner/Spinner';
 
 const Status = {
   IDLE: 'idle',

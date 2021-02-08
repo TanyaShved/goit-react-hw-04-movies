@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import Spinner from '../components/Spinner/Spinner';
-import Searchbar from '../components/Searchbar/Searchbar';
-import MoviesList from '../components/MoviesList/MoviesList';
-import api from '../services/movies-api';
+import Spinner from 'components/Spinner/Spinner';
+import Searchbar from 'components/Searchbar/Searchbar';
+import MoviesList from 'components/MoviesList/MoviesList';
+import api from 'services/movies-api';
 
 const Status = {
   IDLE: 'idle',

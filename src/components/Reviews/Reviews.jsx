@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ReviwesList from '../ReviwesList/ReviwesList';
 import Spinner from '../Spinner/Spinner';
-import api from '../../services/movies-api';
+import api from 'services/movies-api';
 
 const Status = {
   IDLE: 'idle',

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import avatar from '../../icon/default.jpg';
+import avatar from 'icon/default.jpg';
 import s from './CastItem.module.css';
 
 const CastItem = ({ name, foto }) => {
