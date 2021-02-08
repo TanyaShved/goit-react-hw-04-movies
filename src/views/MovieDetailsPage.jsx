@@ -30,26 +30,29 @@ const Status = {
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const { path } = useRouteMatch();
+
   const [movie, setMovie] = useState([]);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
 
+  // console.log(movieId)
+
   const history = useHistory();
   const location = useLocation();
 
-  const newMovieId = Number(movieId.replace(/[^0-9.-]+/g, ''));
+  // const newMovieId = Number(movieId.replace(/[^0-9.-]+/g, ''));
 
   useEffect(() => {
     setStatus(Status.PENDING);
 
     api
-      .fetchMovieInfo(newMovieId)
+      .fetchMovieInfo(movieId)
       .then(setMovie, setStatus(Status.RESOLVED))
       .catch(error => {
         setError(error);
         setStatus(Status.REJECTED);
       });
-  }, [newMovieId]);
+  }, [movieId]);
 
   return (
     movie && (
@@ -64,11 +67,11 @@ const MovieDetailsPage = () => {
 
             <Suspense fallback={<Spinner />}>
               <Route path={`${path}/cast`}>
-                <Cast id={newMovieId} />
+                <Cast id={movieId} />
               </Route>
 
               <Route path={`${path}/reviews`}>
-                <Reviews id={newMovieId} />
+                <Reviews id={movieId} />
               </Route>
             </Suspense>
           </>

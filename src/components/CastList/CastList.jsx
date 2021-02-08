@@ -6,7 +6,7 @@ const CastList = ({ casts }) => {
   return (
     <ul className={s.list}>
       {casts.map(({ id, name, profile_path }) => (
-        <li key={id}>
+        <li key={id} className={s.item}>
           <CastItem name={name} foto={profile_path} />
         </li>
       ))}
