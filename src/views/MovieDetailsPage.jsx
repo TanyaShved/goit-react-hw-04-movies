@@ -35,12 +35,8 @@ const MovieDetailsPage = () => {
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
 
-  // console.log(movieId)
-
   const history = useHistory();
   const location = useLocation();
-
-  // const newMovieId = Number(movieId.replace(/[^0-9.-]+/g, ''));
 
   useEffect(() => {
     setStatus(Status.PENDING);

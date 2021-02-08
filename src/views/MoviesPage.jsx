@@ -49,7 +49,11 @@ const MoviesPage = () => {
       <Searchbar />
 
       {status === Status.PENDING && <Spinner />}
-      <>{findFilms && <MoviesList movies={findFilms} />}</>
+
+      {status === Status.RESOLVED && (
+        <>{findFilms && <MoviesList movies={findFilms} />}</>
+      )}
+
       {status === Status.REJECTED && <h1>{error.message}</h1>}
     </main>
   );
