@@ -56,12 +56,24 @@ const fetchReviews = id => {
   });
 };
 
+const fetchModalForTrailler = id => {
+  return fetch(
+    `${BASE_URL}/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
+  ).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`Sorry. This trailler was not found!`));
+  });
+};
+
 const api = {
   fetchPopularMovies,
   fetchMovieInfo,
   fetchMovieByName,
   fetchCast,
   fetchReviews,
+  fetchModalForTrailler,
 };
 
 export default api;

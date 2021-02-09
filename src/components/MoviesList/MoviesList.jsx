@@ -23,7 +23,17 @@ const MoviesList = ({ movies }) => {
                   state: { from: location },
                 }}
               >
-                <article>
+                <article className={s.article}>
+                  <div>
+                    <button data-id="{{id}}" className={s.youtube}>
+                      <div className={s.overlayText} data-id="{{id}}">
+                        <h2 className={s.btnText} data-id="{{id}}">
+                          Movie Trailer
+                        </h2>
+                      </div>
+                    </button>
+                  </div>
+
                   <img
                     src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
                     alt={title}
