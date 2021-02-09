@@ -7,8 +7,6 @@ const MovieItem = ({ movie, toggleModal }) => {
   const { url } = useRouteMatch();
   const location = useLocation();
 
-  console.log(url);
-
   return (
     <>
       <div className={s.card}>
@@ -85,6 +83,7 @@ const MovieItem = ({ movie, toggleModal }) => {
 
 MovieItem.propTypes = {
   movie: PropTypes.any.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default MovieItem;

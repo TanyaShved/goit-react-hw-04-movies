@@ -7,8 +7,6 @@ import s from './Modal.module.css';
 function Modal({ onClose, children }) {
   const history = useHistory();
 
-  console.log(history);
-
   useEffect(() => {
     const keydownCloseModal = ({ code }) => {
       code === 'Escape' && onClose();

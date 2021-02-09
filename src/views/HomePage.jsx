@@ -40,7 +40,9 @@ const HomePage = () => {
 
       {status === Status.RESOLVED && (
         <>
-          <h1 style={{ marginLeft: '20px' }}>Trending today</h1>
+          <h1 style={{ textAlign: 'center', color: '#ff6b08' }}>
+            Trending today
+          </h1>
           <MoviesList movies={movies} />
         </>
       )}

@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-// import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 import Modal from '../Modal/Modal';
@@ -79,6 +78,8 @@ const Trailer = ({ movieId, toggleModal, showModal }) => {
 
 Trailer.propTypes = {
   movieId: PropTypes.string.isRequired,
+  toggleModal: PropTypes.func.isRequired,
+  showModal: PropTypes.bool.isRequired,
 };
 
 export default Trailer;

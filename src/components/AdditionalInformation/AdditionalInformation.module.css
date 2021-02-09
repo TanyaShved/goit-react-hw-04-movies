@@ -6,6 +6,7 @@
   font-weight: 700;
   line-height: 1.33;
   letter-spacing: 1px;
+  color: #ff6b08;
 }
 
 .list {
@@ -17,4 +18,8 @@
   font-weight: 500;
   line-height: 1.33;
   letter-spacing: 1px;
+}
+
+.link {
+  color: black;
 }

@@ -11,6 +11,7 @@ const AdditionalInformation = () => {
       <ul className={s.list}>
         <li className={s.item}>
           <NavLink
+            className={s.link}
             to={{
               pathname: `${url}/cast`,
               state: { from: location.state.from },
@@ -21,6 +22,7 @@ const AdditionalInformation = () => {
         </li>
         <li className={s.item}>
           <NavLink
+            className={s.link}
             to={{
               pathname: `${url}/reviews`,
               state: { from: location.state.from },
