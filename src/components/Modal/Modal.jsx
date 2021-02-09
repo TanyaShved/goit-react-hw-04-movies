@@ -1,19 +1,26 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { createPortal } from 'react-dom';
+import { useHistory } from 'react-router-dom';
 import s from './Modal.module.css';
 
 function Modal({ onClose, children }) {
+  const history = useHistory();
+
+  console.log(history);
+
   useEffect(() => {
     const keydownCloseModal = ({ code }) => {
       code === 'Escape' && onClose();
+      history.goBack();
     };
     window.addEventListener('keydown', keydownCloseModal);
     return () => window.removeEventListener('keydown', keydownCloseModal);
-  }, [onClose]);
+  }, [onClose, history]);
 
   const backdropCloseModal = ({ target, currentTarget }) => {
     target === currentTarget && onClose();
+    history.goBack();
   };
 
   return createPortal(

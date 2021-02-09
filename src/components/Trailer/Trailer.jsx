@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+// import { useHistory, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Spinner from '../Spinner/Spinner';
 import Modal from '../Modal/Modal';
@@ -14,7 +15,7 @@ const Status = {
 
 const YOUTUBE_URL = 'https://www.youtube.com//embed/';
 
-const Trailer = ({ id, toggleModal, showModal }) => {
+const Trailer = ({ movieId, toggleModal, showModal }) => {
   const [trailer, setTrailer] = useState('');
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
@@ -23,7 +24,7 @@ const Trailer = ({ id, toggleModal, showModal }) => {
     setStatus(Status.PENDING);
 
     api
-      .fetchModalForTrailler(id)
+      .fetchModalForTrailler(movieId)
       .then(video => {
         if (video.results.length !== 0) {
           setTrailer(video.results);
@@ -36,7 +37,7 @@ const Trailer = ({ id, toggleModal, showModal }) => {
         setError(error);
         setStatus(Status.REJECTED);
       });
-  }, [id]);
+  }, [movieId]);
 
   return (
     <>
@@ -77,7 +78,7 @@ const Trailer = ({ id, toggleModal, showModal }) => {
 };
 
 Trailer.propTypes = {
-  id: PropTypes.string.isRequired,
+  movieId: PropTypes.string.isRequired,
 };
 
 export default Trailer;

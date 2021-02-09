@@ -7,6 +7,8 @@ const MovieItem = ({ movie, toggleModal }) => {
   const { url } = useRouteMatch();
   const location = useLocation();
 
+  console.log(url);
+
   return (
     <>
       <div className={s.card}>

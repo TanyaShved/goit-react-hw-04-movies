@@ -79,7 +79,7 @@ const MovieDetailsPage = () => {
 
               <Route path={`${path}/trailer`}>
                 <Trailer
-                  id={movieId}
+                  movieId={movieId}
                   toggleModal={toggleModal}
                   showModal={showModal}
                 />
