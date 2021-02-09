@@ -1,12 +1,31 @@
+import { NavLink, useRouteMatch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import AdditionalInformation from '../AdditionalInformation/AdditionalInformation';
 import s from './MovieItem.module.css';
 
-const MovieItem = ({ movie }) => {
+const MovieItem = ({ movie, toggleModal }) => {
+  const { url } = useRouteMatch();
+  const location = useLocation();
+
   return (
     <>
       <div className={s.card}>
         <div className={s.image_card}>
+          <div>
+            <NavLink
+              to={{
+                pathname: `${url}/trailer`,
+                state: { from: location.state.from },
+              }}
+            >
+              <button type="button" onClick={toggleModal} className={s.youtube}>
+                <div className={s.overlayText}>
+                  <h2 className={s.btnText}>Movie Trailer</h2>
+                </div>
+              </button>
+            </NavLink>
+          </div>
+
           {movie.poster_path && (
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}

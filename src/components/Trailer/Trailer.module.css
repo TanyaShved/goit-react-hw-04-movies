@@ -1,0 +1,14 @@
+.trailerList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -20px;
+  list-style: none;
+}
+
+.trailerItem {
+  width: calc((100% - 4 * 20px) / 4);
+  margin-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}

@@ -69,3 +69,59 @@
   max-width: 420px;
   height: 600px;
 }
+
+.youtube {
+  position: absolute;
+  z-index: 1;
+
+  width: 395px;
+  height: 40px;
+  margin-left: 5px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+
+  border: 0;
+  outline: none;
+  background-image: url('icon/icons8-play-button-2.svg');
+  background-color: transparent;
+}
+
+.btnText {
+  position: absolute;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  color: #c4302b;
+  cursor: pointer;
+  margin: 0;
+  z-index: 5;
+}
+
+.image_card .overlayText {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 25px;
+  width: 360px;
+
+  pointer-events: none;
+  font-family: 'Roboto', sans-serif;
+
+  background-color: rgba(255, 255, 255, 0.8);
+
+  border-radius: 5px;
+  top: 3px;
+  left: 258px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateX(-63%);
+  transition: all 400ms ease-in;
+}
+
+.image_card:hover .overlayText {
+  display: flex;
+  opacity: 1;
+  box-shadow: 0px 0px 20px 3px #ff6b08;
+  transform: translateX(-63%);
+}

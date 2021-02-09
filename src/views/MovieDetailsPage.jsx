@@ -12,12 +12,14 @@ import Spinner from 'components/Spinner/Spinner';
 import GoBackButton from 'components/GoBackButton/GoBackButton';
 
 const Cast = lazy(() =>
-  import('../components/Cast/Cast' /* webpackChunkName: "cast-page" */),
+  import('components/Cast/Cast' /* webpackChunkName: "cast-page" */),
 );
 const Reviews = lazy(() =>
-  import(
-    '../components/Reviews/Reviews' /* webpackChunkName: "reviews-page" */
-  ),
+  import('components/Reviews/Reviews' /* webpackChunkName: "reviews-page" */),
+);
+
+const Trailer = lazy(() =>
+  import('components/Trailer/Trailer' /* webpackChunkName: "trailer-page" */),
 );
 
 const Status = {
@@ -34,6 +36,7 @@ const MovieDetailsPage = () => {
   const [movie, setMovie] = useState([]);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
+  const [showModal, setShowModal] = useState(false);
 
   const history = useHistory();
   const location = useLocation();
@@ -50,6 +53,10 @@ const MovieDetailsPage = () => {
       });
   }, [movieId]);
 
+  const toggleModal = () => {
+    setShowModal(value => !value);
+  };
+
   return (
     movie && (
       <div>
@@ -59,7 +66,7 @@ const MovieDetailsPage = () => {
           <>
             <GoBackButton history={history} path={location} />
 
-            <MovieItem movie={movie} />
+            <MovieItem movie={movie} toggleModal={toggleModal} />
 
             <Suspense fallback={<Spinner />}>
               <Route path={`${path}/cast`}>
@@ -68,6 +75,14 @@ const MovieDetailsPage = () => {
 
               <Route path={`${path}/reviews`}>
                 <Reviews id={movieId} />
+              </Route>
+
+              <Route path={`${path}/trailer`}>
+                <Trailer
+                  id={movieId}
+                  toggleModal={toggleModal}
+                  showModal={showModal}
+                />
               </Route>
             </Suspense>
           </>

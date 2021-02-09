@@ -63,7 +63,7 @@ const fetchModalForTrailler = id => {
     if (response.ok) {
       return response.json();
     }
-    return Promise.reject(new Error(`Sorry. This trailler was not found!`));
+    return Promise.reject(new Error(`Sorry. This trailer was not found!`));
   });
 };
 
