@@ -1,5 +1,7 @@
+import { toast } from 'react-toastify';
+
 const NotFoundView = () => {
-  return <h1>Страница не найдена!</h1>;
+  return toast.error('Страница не найдена!');
 };
 
 export default NotFoundView;

@@ -4,8 +4,9 @@
 }
 
 .title {
-  margin-left: 50px;
+  text-align: center;
   font-size: 20px;
   font-weight: 700;
+  text-transform: uppercase;
   color: #ff6b08;
 }

@@ -1,22 +1,28 @@
 .item {
-  display: table-cell;
-  vertical-align: middle;
-  width: 140px;
-  height: 270px;
-  padding: 5px;
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 0 2px 4px 2px #ff6b08;
+  width: 200px;
+  margin: 15px;
 }
 
 .name {
-  font-size: 13px;
+  margin: 0;
+  margin-bottom: 5px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 1.33;
   letter-spacing: 1px;
+  color: #ff6b08;
 }
 
 .image {
-  width: 140px;
-  height: auto;
+  height: 300px;
+  border-radius: 5px;
+  overflow: hidden;
+  object-fit: cover;
+  margin-bottom: 5px;
+}
+
+.character {
+  margin: 0;
+  font-size: 15px;
+  color: black;
 }

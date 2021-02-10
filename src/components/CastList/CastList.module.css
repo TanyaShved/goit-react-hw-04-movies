@@ -1,15 +1,9 @@
 .list {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
-  margin-left: -20px;
-  margin-bottom: -20px;
   text-align: center;
+  min-height: 450px;
+  margin: -15px;
   list-style: none;
-  margin-top: 10px;
-}
-
-.item {
-  width: calc((100% - 7 * 20px) / 7);
-  margin-left: 20px;
-  margin-bottom: 20px;
 }

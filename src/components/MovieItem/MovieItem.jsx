@@ -62,7 +62,9 @@ const MovieItem = ({ movie, toggleModal }) => {
                   <td className={s.item_text}>Genre</td>
                   <td>
                     {movie.genres.map(({ name, id }) => (
-                      <li key={id}>{name}</li>
+                      <li className={s.genresList} key={id}>
+                        <span className={s.genresName}>{name}</span>
+                      </li>
                     ))}
                   </td>
                 </tr>

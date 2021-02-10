@@ -1,5 +1,6 @@
 import { Link, useRouteMatch, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import avatar from 'icon/default.jpg';
 import s from './MoviesList.module.css';
 
 const MoviesList = ({ movies }) => {
@@ -25,7 +26,11 @@ const MoviesList = ({ movies }) => {
               >
                 <article>
                   <img
-                    src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                    src={
+                      poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${poster_path}`
+                        : avatar
+                    }
                     alt={title}
                     width="100%"
                     className={s.poster}

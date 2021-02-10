@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import CastList from '../CastList/CastList';
 import Spinner from '../Spinner/Spinner';
 import api from 'services/movies-api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Status = {
   IDLE: 'idle',
@@ -21,13 +23,14 @@ const Cast = ({ id }) => {
 
     api
       .fetchCast(id)
-      .then(castMovie => {
-        if (castMovie.cast.length !== 0) {
-          setCasts(castMovie.cast);
-          setStatus(Status.RESOLVED);
+      .then(({ cast }) => {
+        if (cast.length === 0) {
+          toast.error('No results!');
+          setStatus(Status.IDLE);
           return;
         }
-        return Promise.reject(new Error(`Sorry, Something came wrong!`));
+        setCasts(cast);
+        setStatus(Status.RESOLVED);
       })
       .catch(error => {
         setError(error);

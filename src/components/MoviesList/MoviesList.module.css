@@ -28,11 +28,18 @@
 
 .poster {
   height: 441px;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  object-fit: cover;
+  transition: all 300ms;
+
+  /* height: 441px;
   position: relative;
   margin-bottom: 10px;
   border-radius: 5px;
   overflow: hidden;
-  cursor: pointer;
+  cursor: pointer; */
 }
 
 .poster:hover {

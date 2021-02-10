@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import ReviwesList from '../ReviwesList/ReviwesList';
 import Spinner from '../Spinner/Spinner';
 import api from 'services/movies-api';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Status = {
   IDLE: 'idle',
@@ -21,8 +23,13 @@ const Reviews = ({ id }) => {
 
     api
       .fetchReviews(id)
-      .then(reviewsMovie => {
-        setReviews(reviewsMovie.results);
+      .then(({ results }) => {
+        if (results.length === 0) {
+          toast.error("We don't have any reviews for this movie.");
+          setStatus(Status.IDLE);
+          return;
+        }
+        setReviews(results);
         setStatus(Status.RESOLVED);
       })
       .catch(error => {
@@ -37,10 +44,6 @@ const Reviews = ({ id }) => {
 
       {status === Status.RESOLVED && reviews.length > 0 && (
         <ReviwesList reviews={reviews} />
-      )}
-
-      {status === Status.RESOLVED && reviews.length === 0 && (
-        <h2>We don't have any reviews for this movies!</h2>
       )}
 
       {status === Status.REJECTED && <h1>{error.message}</h1>}

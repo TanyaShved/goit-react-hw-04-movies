@@ -6,9 +6,10 @@ const useStyles = makeStyles({
     justifyContent: 'center',
     '& .MuiPaginationItem-page.Mui-selected, & .MuiPaginationItem-page.Mui-selected:hover, & .MuiPaginationItem-page.Mui-selected.Mui-focusVisible,  & .MuiPaginationItem-page:hover, & .MuiPaginationItem-page.Mui-focusVisible': {
       backgroundColor: '#ff6b08',
+      color: 'white',
     },
     '& .MuiPaginationItem-root': {
-      color: 'read',
+      color: 'bleak',
     },
     '& .MuiPaginationItem-page:hover, & .MuiPaginationItem-page.Mui-focusVisible': {
       opacity: '0.7',

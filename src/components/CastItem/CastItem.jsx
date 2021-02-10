@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import avatar from 'icon/default.jpg';
 import s from './CastItem.module.css';
 
-const CastItem = ({ name, foto }) => {
+const CastItem = ({ name, foto, character }) => {
   return (
     <div className={s.item}>
       <img
@@ -14,7 +14,8 @@ const CastItem = ({ name, foto }) => {
         }
         alt={name}
       />
-      <h2 className={s.name}>{name}</h2>
+      <h3 className={s.name}>{name}</h3>
+      <p className={s.character}>{character}</p>
     </div>
   );
 };
@@ -22,6 +23,7 @@ const CastItem = ({ name, foto }) => {
 CastItem.propTypes = {
   name: PropTypes.string.isRequired,
   foto: PropTypes.string,
+  character: PropTypes.string.isRequired,
 };
 
 export default CastItem;

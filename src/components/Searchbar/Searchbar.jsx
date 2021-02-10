@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import s from './Searcbar.module.css';
 
-const Searcbar = ({ onSubmit }) => {
+const Searcbar = () => {
   const [movieName, setMovieName] = useState('');
   const location = useLocation();
   const history = useHistory();

@@ -50,6 +50,14 @@
   text-transform: uppercase;
 }
 
+.genresList {
+  color: #ff6b08;
+}
+
+.genresName {
+  color: black;
+}
+
 .item_about {
   margin-bottom: 18px;
   text-transform: uppercase;
