@@ -6,7 +6,7 @@ const AdditionalInformation = () => {
   const location = useLocation();
 
   return (
-    <div>
+    <div className={s.border}>
       <p className={s.title}>Additional information</p>
       <ul className={s.list}>
         <li className={s.item}>

@@ -1,8 +1,9 @@
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import AppBar from './components/AppBar/AppBar';
 import Spinner from './components/Spinner/Spinner';
+import { addBackToTop } from 'vanilla-back-to-top';
 
 const HomePage = lazy(() =>
   import('./views/HomePage' /* webpackChunkName: "home-view" */),
@@ -20,6 +21,12 @@ const NotFoundView = lazy(() =>
 );
 
 const App = () => {
+  useEffect(() => {
+    addBackToTop({
+      backgroundColor: '#ff6b08',
+    });
+  }, []);
+
   return (
     <>
       <AppBar />

@@ -73,10 +73,8 @@ const MovieItem = ({ movie, toggleModal }) => {
           <p className={s.description}>{movie.overview}</p>{' '}
         </div>
       </div>
-      <hr />
 
       <AdditionalInformation />
-      <hr />
     </>
   );
 };

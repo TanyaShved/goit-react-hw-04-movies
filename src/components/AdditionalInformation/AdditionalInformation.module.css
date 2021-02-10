@@ -1,3 +1,7 @@
+.border {
+  border-top: 2px solid #ff6b08;
+}
+
 .title {
   margin-bottom: 10px;
   margin-left: 10px;
