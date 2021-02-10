@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory } from 'react-router-dom';
 import Spinner from 'components/Spinner/Spinner';
 import Searchbar from 'components/Searchbar/Searchbar';
 import MoviesList from 'components/MoviesList/MoviesList';
+import useStyles from 'styles/stylesPagination';
+import { Pagination } from '@material-ui/lab';
 import api from 'services/movies-api';
 
 const Status = {
@@ -16,8 +18,13 @@ const MoviesPage = () => {
   const [findFilms, setFindFilms] = useState([]);
   const [error, setError] = useState(null);
   const [status, setStatus] = useState(Status.IDLE);
+  const [totalPage, setTotalPage] = useState(0);
 
+  const classes = useStyles();
+  const history = useHistory();
   const location = useLocation();
+
+  const page = new URLSearchParams(location.search).get('page') ?? 1;
 
   useEffect(() => {
     if (location.search === '') {
@@ -27,12 +34,13 @@ const MoviesPage = () => {
     findForMovies(new URLSearchParams(location.search).get('query'));
   }, [location.search]);
 
-  const findForMovies = query => {
+  const findForMovies = (query, page) => {
     api
-      .fetchMovieByName(query)
-      .then(searchMovies => {
-        if (searchMovies.results.length !== 0) {
-          setFindFilms(searchMovies.results);
+      .fetchMovieByName(query, page)
+      .then(({ results, total_pages }) => {
+        if (results.length !== 0) {
+          setFindFilms(results);
+          setTotalPage(total_pages);
           setStatus(Status.RESOLVED);
           return;
         }
@@ -44,6 +52,10 @@ const MoviesPage = () => {
       });
   };
 
+  const onHandlePage = (_, page) => {
+    history.push({ ...location, search: `page=${page}` });
+  };
+
   return (
     <main>
       <Searchbar />
@@ -51,7 +63,20 @@ const MoviesPage = () => {
       {status === Status.PENDING && <Spinner />}
 
       {status === Status.RESOLVED && (
-        <>{findFilms && <MoviesList movies={findFilms} />}</>
+        <>
+          {findFilms && <MoviesList movies={findFilms} />}
+          {totalPage > 1 && (
+            <Pagination
+              className={classes.root}
+              count={totalPage}
+              onChange={onHandlePage}
+              page={Number(page)}
+              showFirstButton
+              showLastButton
+              size="large"
+            />
+          )}
+        </>
       )}
 
       {status === Status.REJECTED && <h1>{error.message}</h1>}

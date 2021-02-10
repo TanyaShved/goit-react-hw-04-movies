@@ -1,15 +1,15 @@
 const API_KEY = 'c1ded0bfb98f51bbb3c132d34092ee93';
 const BASE_URL = 'https://api.themoviedb.org/3';
 
-const fetchPopularMovies = () => {
-  return fetch(`${BASE_URL}/trending/movie/day?api_key=${API_KEY}`).then(
-    response => {
-      if (response.ok) {
-        return response.json();
-      }
-      return Promise.reject(new Error(`Sorry, Something came wrong!`));
-    },
-  );
+const fetchPopularMovies = page => {
+  return fetch(
+    `${BASE_URL}/trending/movie/day?api_key=${API_KEY}&page=${page}`,
+  ).then(response => {
+    if (response.ok) {
+      return response.json();
+    }
+    return Promise.reject(new Error(`Sorry, Something came wrong!`));
+  });
 };
 
 const fetchMovieInfo = id => {
@@ -23,9 +23,9 @@ const fetchMovieInfo = id => {
   });
 };
 
-const fetchMovieByName = movieName => {
+const fetchMovieByName = (movieName, page) => {
   return fetch(
-    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=1&include_adult=false`,
+    `${BASE_URL}/search/movie?api_key=${API_KEY}&language=en-US&query=${movieName}&page=${page}`,
   ).then(response => {
     if (response.ok) {
       return response.json();
