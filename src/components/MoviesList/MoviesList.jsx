@@ -1,16 +1,13 @@
-import { Link, useRouteMatch, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import slugify from 'slugify';
 import avatar from 'icon/default.jpg';
 import s from './MoviesList.module.css';
 
-const MoviesList = ({ movies }) => {
-  const { url } = useRouteMatch();
-  let newUrl = url;
-  const location = useLocation();
+const makeSlug = string => slugify(string, { lower: true });
 
-  if (url === '/') {
-    newUrl = url + 'movies';
-  }
+const MoviesList = ({ movies }) => {
+  const location = useLocation();
 
   return (
     <>
@@ -20,7 +17,7 @@ const MoviesList = ({ movies }) => {
             <li key={id} className={s.item}>
               <Link
                 to={{
-                  pathname: `${newUrl}/${id}`,
+                  pathname: `/movies/${makeSlug(`${title} ${id}`)}`,
                   state: { from: location },
                 }}
               >

@@ -30,7 +30,7 @@ const Status = {
 };
 
 const MovieDetailsPage = () => {
-  const { movieId } = useParams();
+  const { slug } = useParams();
   const { path } = useRouteMatch();
 
   const [movie, setMovie] = useState([]);
@@ -40,6 +40,8 @@ const MovieDetailsPage = () => {
 
   const history = useHistory();
   const location = useLocation();
+
+  const movieId = slug.match(/[a-z0-9]+$/)[0];
 
   useEffect(() => {
     setStatus(Status.PENDING);
